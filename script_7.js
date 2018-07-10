@@ -2,8 +2,10 @@
 // Compatibility shim
 //navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+
+var myid = Math.floor(Math.random() * 100).toString;
 // PeerJS object
-var peer = new Peer({ key: '9373b614-604f-4fd5-b96a-919b20a7c24e', debug: 3 });
+var peer = new Peer(myid,{ key: '9373b614-604f-4fd5-b96a-919b20a7c24e', debug: 3 });
 //////////??????????????????????????????????????????????????
 //var onn = peer.connect;
 var connectedPeers = {};
