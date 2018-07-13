@@ -1,31 +1,26 @@
+<!doctype html>
 <html>
 <head>
-  <title>PeerJS - Video chat example</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!--jQeryのライブラリ-->
-  <script type="text/javascript" src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>                  <!--skywayのSDK-->
-  <script src="script_7.js"></script>
-  <script src="unity_7.js"></script>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://skyway.io/dist/0.3/peer.min.js"></script>
+    <script src="script_7.js"></script>
 </head>
-
 <body>
-
-  <div id="actions">
-    Your PeerJS ID is <span id="my-id"></span><br>
-    Connect to a peer: <input type="text" id="callto-id" placeholder="Someone else's id"><input class="button" type="button" value="Connect" id="connect"><br><br>
-
-    <form id="send">
-      <input type="text" id="text" placeholder="Enter message"><input class="button" type="submit" value="Send to selected peers">
+    <!-- 接続処理用のform -->
+    <form id="connect">
+        myid: <input type="text" id="myid" readonly><br>
+        peerid: <input type="text" id="peerid"><br>
+        <button type="submit">connect</button>
     </form>
-    <button id="close">Close selected connections</button>
-  </div>
 
-  <div id = "resultDiv"></div>
-  <div id = "resultRcv"></div>
+    <!-- メッセージ送信用のform -->
+    <form id="messaging">
+        <input type="text"><button type="submit">send</button>
+    </form>
 
-  <div id="wrap"><div id="connections"><span class="filler">You have not yet
-        made any connections.</span></div>
-    <div class="clear"></div></div>
+    <!-- 受信メッセージを表示する -->
+    <div id="receive"></div>
 
 </body>
 </html>
