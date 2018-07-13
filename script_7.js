@@ -1,4 +1,4 @@
-//$(function () {
+$(function () {
     // peer serverからpeeridもらうとサンプルレベルだと
     // id打ち込むのがめんどいので、乱数でidを生成
     var myid = Math.floor(Math.random() * 10000).toString();
@@ -12,7 +12,7 @@
     var peer = new Peer(myid, { key: "9373b614-604f-4fd5-b96a-919b20a7c24e" });
 
     // 接続元
-    $("form#connect").submit(function (ev) {
+    $("form#connect").submit(function Con (ev) {
         ev.preventDefault();
 
         // 接続先のpeeridを取得し、connect()で接続処理を開始する
@@ -55,4 +55,4 @@
             $("<p>").text(data).appendTo("#receive");
         });
     }
-//});
+});
