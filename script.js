@@ -1,4 +1,4 @@
-$(function () {
+//$(function () {
     // peer serverからpeeridもらうとサンプルレベルだと
     // id打ち込むのがめんどいので、乱数でidを生成
     const myid = Math.floor(Math.random() * 100).toString();
@@ -55,4 +55,4 @@ $(function () {
             $("<p>").text(data).appendTo("#receive");
         });
     }
-});
+//});
