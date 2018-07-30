@@ -1,29 +1,77 @@
-﻿<!doctype html>
-<html>
-<head lang="ja">
-    <title>SkyWay chat demo</title>
+﻿<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <title>SkyWay data connection</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <!-- �ڑ������p��form -->
-    <form id="connect">
-        myid: <input type="text" id="myid" readonly><br>
-        peerid: <input type="text" id="peerid"><br>
-        <button type="submit">connect</button>
-    </form>
+    <div id="actions">
+        <p>Your ID: <span id="my-id">...</span></p>
+        <div id="peerid-ui">
+            <p>select your id</p>
+            <button type="button" id="twincam">Twincam</button>
+            <button type="button" id="user">User</button>
+            <button type="button" id="sender">Sender</button>
+            <button type="button" id="reciever">Reciever</button>
+        </div>
 
-    <!-- ���b�Z�[�W���M�p��form -->
-    <form id="messaging">
-        <input type="text"><button type="submit">send</button>
-    </form>
+        Connect to a peer:
+        <form id="connect">
+            <input type="text" placeholder="Someone else's id" id="callto-id">
+            <button type="submit">Connect</button>
+            <!--<input class="button" type="submit" value="Connect">-->
+        </form>
+        <div id="disconnect-ui">
+            <p>Chat with <strong><span id="their-id">...</span></strong></p>
+            <button type="button" id="disconnect">Disconnect</button>
+            <!--<input type="text" placeholder="Someone else's id" id="callto-id">-->
+            <!--<input class="button" type="submit" value="Connect">-->
+        </div>
+        <br>
+        <!--<br>-->
+        <form id="send">
+            <input type="text" placeholder="Enter message" id="text">
+            <button type="submit">Send</button>
+            <!--<input type="submit" value="Send to selected peers">-->
+        </form>
+        <!--<button id="close">Close selected connections</button>-->
+    </div>
 
-    <!-- ��M���b�Z�[�W��\������ -->
-    <div id="receive"></div>
+    <!--<div id="receive"></div>-->
 
+    <!--<div id="wrap">
+        <div id="connections">
+            <span class="filler">
+                You have not yet
+                made any connections.
+            </span>
+        </div>
+        <div class="clear"></div>
+    </div>-->
+    <div>
+        <p>Send: <span id="resultSend">...</span></p>
+        <p>Recieve: <span id="resultRecieve">...</span></p>
+    </div>
+
+
+    <!--<div id="box" style="background: #fff; font-size: 18px;padding:40px 30px; text-align: center;">
+      Drag file here to send to active connections.
+    </div>-->
+    <div>
+        <button type="button" id="reload">Reload</button>
+    </div>
+
+    <!--<div class="warning browser">
+          <div class="important">Your browser version: <span id="browsers"></span><br>
+            Currently <strong>Google Chrome 52+ or Mozilla Firefox 47+</strong> is required.</strong></div>
+        <div class="log" style="color:#FF7500;text-shadow:none;padding:15px;background:#eee"><strong>Connection status</strong>:<br></div>
+    </div>-->
 </body>
+
 <!--jQueryを使っているので <body> → jQueryを使って記述したscript の順にすること-->
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!--jQeryのライブラリ-->
-<script type="text/javascript" src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>                  <!--skywayのSDK-->
-<script src="script.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </html>
