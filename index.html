@@ -7,67 +7,35 @@
 </head>
 
 <body>
-    <div id="actions">
-        <p>Your ID: <span id="my-id">...</span></p>
-        <div id="peerid-ui">
-            <p>select your id</p>
-            <button type="button" id="twincam">Twincam</button>
-            <button type="button" id="user">User</button>
-            <button type="button" id="sender">Sender</button>
-            <button type="button" id="reciever">Reciever</button>
-        </div>
 
-        Connect to a peer:
-        <form id="connect">
-            <input type="text" placeholder="Someone else's id" id="callto-id">
-            <button type="submit">Connect</button>
-            <!--<input class="button" type="submit" value="Connect">-->
-        </form>
-        <div id="disconnect-ui">
-            <p>Chat with <strong><span id="their-id">...</span></strong></p>
-            <button type="button" id="disconnect">Disconnect</button>
-            <!--<input type="text" placeholder="Someone else's id" id="callto-id">-->
-            <!--<input class="button" type="submit" value="Connect">-->
-        </div>
-        <br>
-        <!--<br>-->
-        <form id="send">
-            <input type="text" placeholder="Enter message" id="text">
-            <button type="submit">Send</button>
-            <!--<input type="submit" value="Send to selected peers">-->
-        </form>
-        <!--<button id="close">Close selected connections</button>-->
+    <p>Your ID: <strong><span id="my-id">...</span></strong></p>
+    <div id="peerid-ui">
+        <p>select your id</p>
+        <button type="button" id="twincam">Twincam</button>
+        <button type="button" id="user">User</button>
+        <button type="button" id="sender">Sender</button>
+        <button type="button" id="reciever">Reciever</button>
     </div>
-
-    <!--<div id="receive"></div>-->
-
-    <!--<div id="wrap">
-        <div id="connections">
-            <span class="filler">
-                You have not yet
-                made any connections.
-            </span>
-        </div>
-        <div class="clear"></div>
-    </div>-->
+    <form id="connect">
+        Connect to a peer: <input type="text" placeholder="Someone else's id" id="their-id">
+        <button type="submit">Connect</button>
+    </form>
+    <div id="connected-ui">
+        <p>Chat with <strong><span id="connected-id">...</span></strong></p>
+        <button type="button" id="close">Close</button>
+    </div>
+    <form id="send">
+        <input type="text" placeholder="Enter message" id="message">
+        <button type="submit">Send</button>
+    </form>
     <div>
-        <p>Send: <span id="resultSend">...</span></p>
+        <p>  Send : <span id="resultSend">...</span></p>
         <p>Recieve: <span id="resultRecieve">...</span></p>
     </div>
-
-
-    <!--<div id="box" style="background: #fff; font-size: 18px;padding:40px 30px; text-align: center;">
-      Drag file here to send to active connections.
-    </div>-->
+    <br />
     <div>
         <button type="button" id="reload">Reload</button>
     </div>
-
-    <!--<div class="warning browser">
-          <div class="important">Your browser version: <span id="browsers"></span><br>
-            Currently <strong>Google Chrome 52+ or Mozilla Firefox 47+</strong> is required.</strong></div>
-        <div class="log" style="color:#FF7500;text-shadow:none;padding:15px;background:#eee"><strong>Connection status</strong>:<br></div>
-    </div>-->
 </body>
 
 <!--jQueryを使っているので <body> → jQueryを使って記述したscript の順にすること-->
