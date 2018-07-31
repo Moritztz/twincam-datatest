@@ -26,7 +26,7 @@ function GetPeerId(id) {
 
     //エラー
     peer.on('error', err => {
-        alert(err);
+        console.log(err);
         setupMakeConnUI();
     });
 
@@ -57,7 +57,7 @@ $('#reciever').on('click', () => {
 $('#connect').on('submit', e => {
     e.preventDefault();
     //接続
-    const conn = peer.connect($('their-id').val());
+    const conn = peer.connect($('#their-id').val());
     Connect(conn);
 });
 
