@@ -65,7 +65,7 @@ $('#close').on('click', () => {
     existingConn.close();
 });
 
-//送信
+//送信ボタン
 $('#send').on('submit', e => {
     e.preventDefault();
 
@@ -77,7 +77,7 @@ $('#send').on('submit', e => {
     $('#message').focus();
 });
 
-//Unityからのデータ送信
+//送信処理
 function DataSend(msg) {
     existingConn.send(msg);
     $("#resultSend").text(msg);
@@ -108,7 +108,7 @@ function Connect(conn) {
     });
 }
 
-//dataを受け取った場合の処理
+//受信処理
 function DataRecieve(data) {
     $('#resultRecieve').text(data);
 }
