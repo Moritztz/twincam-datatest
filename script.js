@@ -1,10 +1,11 @@
 let peer = null;
 let existingConn = null;
-//let conn = null;
-//let connectedPeers = null;
+
+//åˆæœŸåŒ–(cssã§ã‚‚ã§ãã‚‹ã¯ãš)
+setupMakeConnUI();
 
 function GetPeerId(id) {
-    //ƒ{ƒ^ƒ“‚ğ‚·‚×‚ÄÁ‚·@PeerID‚ªƒT[ƒo[‚Éc‚Á‚Ä‚µ‚Ü‚¢‰Šú‰»‚ª‚Å‚«‚È‚¢
+    //ãƒœã‚¿ãƒ³ã‚’ã™ã¹ã¦æ¶ˆã™ã€€PeerIDãŒã‚µãƒ¼ãƒãƒ¼ã«æ®‹ã£ã¦ã—ã¾ã„åˆæœŸåŒ–ãŒã§ããªã„
     $('#peerid-ui').hide();
 
     peer = new Peer(id, {
@@ -20,10 +21,10 @@ function GetPeerId(id) {
         $('#my-id').text(id);
     });
 
-    //’…Mˆ—
+    //ç€ä¿¡å‡¦ç†
     peer.on('connection', Connect);
 
-    //ƒGƒ‰[
+    //ã‚¨ãƒ©ãƒ¼
     peer.on('error', err => {
         alert(err);
         setupMakeConnUI();
@@ -31,89 +32,89 @@ function GetPeerId(id) {
 
 }
 
-//ID‘I‘ğ
+//IDé¸æŠ
 $('#twincam').on('click', () => {
-    getpeerid("twincam");
+    GetPeerId("twincam");
     $('#their-id').val("user");
 });
 
 $('#user').on('click', () => {
-    getpeerid("user");
+    GetPeerId("user");
     $('#their-id').val("twincam");
 });
 
 $('#sender').on('click', () => {
-    getpeerid("sender");
+    GetPeerId("sender");
     $('#their-id').val("reciever");
 });
 
 $('#reciever').on('click', () => {
-    getpeerid("reciever");
+    GetPeerId("reciever");
     $('#their-id').val("sender");
 });
 
 // Connect to a peer
 $('#connect').on('submit', e => {
     e.preventDefault();
-    //Ú‘±
+    //æ¥ç¶š
     const conn = peer.connect($('their-id').val());
     Connect(conn);
 });
 
-//Ø’f
+//åˆ‡æ–­
 $('#close').on('click', () => {
     existingConn.close();
 });
 
-//‘—Mƒ{ƒ^ƒ“
+//é€ä¿¡ãƒœã‚¿ãƒ³
 $('#send').on('submit', e => {
     e.preventDefault();
 
     DataSend($('#message').val());
 
-    //ƒeƒLƒXƒgƒ{ƒbƒNƒX‚ğƒNƒŠƒA
+    //ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚’ã‚¯ãƒªã‚¢
     $('#message').val('');
-    //ƒeƒLƒXƒgƒ{ƒbƒNƒX‚ğ‘I‘ğ
+    //ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚’é¸æŠ
     $('#message').focus();
 });
 
-//‘—Mˆ—
+//é€ä¿¡å‡¦ç†
 function DataSend(msg) {
     existingConn.send(msg);
     $("#resultSend").text(msg);
 }
 
-//Ú‘±ƒCƒxƒ“ƒg‚ÌŠÇ—
+//æ¥ç¶šã‚¤ãƒ™ãƒ³ãƒˆã®ç®¡ç†
 function Connect(conn) {
     if (existingConn) {
         existingConn.close();
     }
     setupEndConnUI();
 
-    //Ú‘±‘Šè‚ğ•Û
+    //æ¥ç¶šç›¸æ‰‹ã‚’ä¿æŒ
     existingConn = conn;
 
-    //Ú‘±‚ªŠ®—¹‚µ‚½ê‡‚ÌƒCƒxƒ“ƒg
+    //æ¥ç¶šãŒå®Œäº†ã—ãŸå ´åˆã®ã‚¤ãƒ™ãƒ³ãƒˆ
     conn.on('open', () => {
         $('#connected-id').val(conn.id);
     });
 
-    //óM
+    //å—ä¿¡
     conn.on('data', DataRecieve);
 
-    //‘Šè‚ªØ’f‚µ‚½‚Æ‚«
+    //ç›¸æ‰‹ãŒåˆ‡æ–­ã—ãŸã¨ã
     conn.on('close', () => {
         $('#resuluRecieve').text(conn.id + 'has left the chat');
         setupMakeConnUI();
     });
 }
 
-//óMˆ—
+//å—ä¿¡å‡¦ç†
 function DataRecieve(data) {
     $('#resultRecieve').text(data);
 }
 
-//UI‘€ì
+//UIæ“ä½œ
 function setupMakeConnUI() {
     $('#connect').show();
     $('#connected-ui').hide();
