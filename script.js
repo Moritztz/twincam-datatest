@@ -2,7 +2,7 @@ let peer = null;
 let existingConn = null;
 
 //初期化(cssでもできるはず)
-setupMakeConnUI();
+SetupMakeConnUI();
 
 function GetPeerId(id) {
     //ボタンをすべて消す　PeerIDがサーバーに残ってしまい初期化ができない
@@ -27,7 +27,7 @@ function GetPeerId(id) {
     //エラー
     peer.on('error', err => {
         $('#resultRecieve').text(err);
-        setupMakeConnUI();
+        SetupMakeConnUI();
     });
 
 }
@@ -94,7 +94,7 @@ function Connect(conn) {
     if (existingConn) {
         existingConn.close();
     }
-    setupEndConnUI();
+    SetupEndConnUI();
 
     //接続相手を保持
     existingConn = conn;
@@ -110,7 +110,7 @@ function Connect(conn) {
     //相手が切断したとき
     conn.on('close', () => {
         $('#resultRecieve').text(conn.remoteId + 'has left the chat');
-        setupMakeConnUI();
+        SetupMakeConnUI();
     });
 }
 
@@ -120,12 +120,12 @@ function DataRecieve(data) {
 }
 
 //UI操作
-function setupMakeConnUI() {
+function SetupMakeConnUI() {
     $('#connect').show();
     $('#connected-ui').hide();
 }
 
-function setupEndConnUI() {
+function SetupEndConnUI() {
     $('#connect').hide();
     $('#connected-ui').show();
 
