@@ -26,7 +26,7 @@ function GetPeerId(id) {
 
     //エラー
     peer.on('error', err => {
-        $('#resultRecieve').text(err);
+        $('#console').text(err);
         SetupMakeConnUI();
     });
 
@@ -109,7 +109,7 @@ function Connect(conn) {
 
     //相手が切断したとき
     conn.on('close', () => {
-        $('#resultRecieve').text(conn.remoteId + 'has left the chat');
+        $('#console').text(conn.remoteId + 'has left the chat');
         SetupMakeConnUI();
     });
 }
@@ -129,5 +129,5 @@ function SetupEndConnUI() {
     $('#connect').hide();
     $('#connected-ui').show();
 
-    $('#resultRecieve').text('...');
+    $('#console').text('');
 }
