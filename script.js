@@ -1,4 +1,4 @@
-let peer = null;
+﻿let peer = null;
 let existingConn = null;
 
 //初期化(cssでもできるはず)
