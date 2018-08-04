@@ -109,7 +109,7 @@ function Connect(conn) {
 
     //相手が切断したとき
     conn.on('close', () => {
-        $('#console').text(conn.remoteId + 'has left the chat');
+        $('#console').text(conn.remoteId + ' has left the chat');
         SetupMakeConnUI();
     });
 }
