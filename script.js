@@ -105,7 +105,9 @@ function Connect(conn) {
     });
 
     //受信
-    conn.on('data', DataRecieve);
+    conn.on('data', function DataRecieve(data) {
+        $('#resultRecieve').text(data);
+    });
 
     //相手が切断したとき
     conn.on('close', () => {
@@ -115,9 +117,8 @@ function Connect(conn) {
 }
 
 //受信処理
-function DataRecieve(data) {
-    $('#resultRecieve').text(data);
-}
+//function DataRecieve(data) {
+//}
 
 //UI操作
 function SetupMakeConnUI() {
