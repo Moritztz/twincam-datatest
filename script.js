@@ -105,7 +105,8 @@ function Connect(conn) {
     });
 
     //受信
-    conn.on('data', function DataRecieve(data) {
+    conn.on('data', data => {
+        DataRecieve(data);
         $('#resultRecieve').text(data);
     });
 
@@ -117,8 +118,8 @@ function Connect(conn) {
 }
 
 //受信処理
-//function DataRecieve(data) {
-//}
+function DataRecieve(data) {
+}
 
 //UI操作
 function SetupMakeConnUI() {
