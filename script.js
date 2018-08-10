@@ -33,6 +33,11 @@ function GetPeerId(id) {
 }
 
 //ID選択
+function UnityGetPeerId(id, theirId) {
+    GetPeerId(id);
+    $('#their-id').val(theirId);
+}
+
 $('#twincam').on('click', () => {
     GetPeerId("twincam");
     $('#their-id').val("user");
