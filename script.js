@@ -11,7 +11,7 @@ function GetPeerId(id) {
     peer = new Peer(id, {
         // Set API key for cloud server (you don't need this if you're running your
         // own.
-        key: '9373b614-604f-4fd5-b96a-919b20a7c24e',
+        key: '6cee6718-08d3-4ce7-93a9-237ecd4601bb',
         // Set highest debug level (log everything!).
         debug: 3,
     });
@@ -65,6 +65,8 @@ $('#connect').on('submit', e => {
     const conn = peer.connect($('#their-id').val());
     Connect(conn);
 });
+
+
 
 //切断
 $('#close').on('click', () => {
