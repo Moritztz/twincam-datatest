@@ -66,12 +66,20 @@ $('#connect').on('submit', e => {
     Connect(conn);
 });
 
-
+function UnityConnect(theirId) {
+    //接続
+    const conn = peer.connect(theirId);
+    Connect(conn);
+}
 
 //切断
 $('#close').on('click', () => {
     existingConn.close();
 });
+
+function UnityClose() {
+    existingConn.close();
+}
 
 //送信ボタン
 $('#send').on('submit', e => {
